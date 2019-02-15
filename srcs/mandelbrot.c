@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   which_fractal.c                                    :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/15 15:41:33 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 17:07:08 by anleclab         ###   ########.fr       */
+/*   Created: 2019/02/15 17:21:48 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/15 18:17:27 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_name	which_fractal(char *str)
+static t_point	mandelbrot(t_point mand, t_point c)
 {
-	if (ft_strequ(str, "mandelbrot") || ft_strequ(str, "man"))
-		return (MANDELBROT);
-	if (ft_strequ(str, "julia") || ft_strequ(str, "jul"))
-		return (JULIA);
-	return (NONE);
+	return(c_add(c_sq(mand), c));
+}
+
+int		is_mandelbrot(t_point c)
+{
+	t_point	mand;
+	int		i;
+
+	mand.x = 0;
+	mand.y = 0;
+	i = -1;
+	while (++i < ITERATIONS)
+	{
+		mand = mandelbrot(mand, c);
+		if (c_mod(mand) > 2)
+			return (0);
+	}
+	return (1);
 }

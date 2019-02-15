@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   which_fractal.c                                    :+:      :+:    :+:   */
+/*   new_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/15 15:41:33 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 17:07:08 by anleclab         ###   ########.fr       */
+/*   Created: 2019/01/28 16:10:25 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/15 18:23:34 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "mlx.h"
 
-t_name	which_fractal(char *str)
+int		new_image(t_fract *fract)
 {
-	if (ft_strequ(str, "mandelbrot") || ft_strequ(str, "man"))
-		return (MANDELBROT);
-	if (ft_strequ(str, "julia") || ft_strequ(str, "jul"))
-		return (JULIA);
-	return (NONE);
+	if (!(fract->img_ptr = mlx_new_image(fract->mlx_ptr, WIDTH, HEIGHT)))
+		return (0);
+	if (!(fract->addr = (unsigned int *)mlx_get_data_addr(fract->img_ptr,
+			&(fract->image.bpp), &(fract->image.size_line),
+			&(fract->image.endian))))
+		return (0);
+	return (1);
 }

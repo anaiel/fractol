@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   which_fractal.c                                    :+:      :+:    :+:   */
+/*   coordinates.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/15 15:41:33 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 17:07:08 by anleclab         ###   ########.fr       */
+/*   Created: 2019/02/15 17:32:01 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/15 18:18:31 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_name	which_fractal(char *str)
+t_point		coord(t_fract *fract, int x, int y)
 {
-	if (ft_strequ(str, "mandelbrot") || ft_strequ(str, "man"))
-		return (MANDELBROT);
-	if (ft_strequ(str, "julia") || ft_strequ(str, "jul"))
-		return (JULIA);
-	return (NONE);
+	t_point		res;
+
+	if (fract->name == MANDELBROT)
+	{
+		res.x = (x * 3 / WIDTH) - 2;
+		res.y = (-y * 2 / HEIGHT) + 1;
+	}
+	else
+	{
+		res.x = 0;
+		res.y = 0;
+	}
+	return (res);
 }

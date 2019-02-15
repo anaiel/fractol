@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/15 16:41:57 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/15 18:23:50 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,12 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = main.c \
 	  which_fractal.c \
 	  end.c \
-	  events.c
+	  events.c \
+	  complex_numbers.c \
+	  mandelbrot.c \
+	  coordinates.c \
+	  draw_fractal.c \
+	  new_image.c
 
 SRCSFD = srcs/
 OBJSFD = objs/

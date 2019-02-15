@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_image.c                                        :+:      :+:    :+:   */
+/*   complex_numbers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/28 16:10:25 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/08 18:05:17 by anleclab         ###   ########.fr       */
+/*   Created: 2019/02/15 17:11:12 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/15 18:16:28 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "mlx.h"
+#include "fractol.h"
 
-int		new_image(t_fdf *fdf)
+t_point		c_add(t_point a, t_point b)
 {
-	if (!(fdf->img_ptr = mlx_new_image(fdf->mlx_ptr, WIN_WIDTH, WIN_HEIGHT)))
-		return (0);
-	if (!(fdf->addr = (unsigned int *)mlx_get_data_addr(fdf->img_ptr,
-			&(fdf->image.bpp), &(fdf->image.size_line), &(fdf->image.endian))))
-		return (0);
-	return (1);
+	t_point	res;
+
+	res.x = a.x + b.x;
+	res.y = a.y + a.y;
+	return (res);
+}
+
+t_point		c_mult(t_point a, t_point b)
+{
+	t_point	res;
+
+	res.x = a.x * b.x - a.y * b.y;
+	res.y = a.x * b.y + a.y * b.x;
+	return (res);
+}
+
+t_point		c_sq(t_point a)
+{
+	return (c_mult(a, a));
+}
+
+double		c_mod(t_point a)
+{
+	return (sqrt(a.x * a.x + a.y * a.y));
 }

@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 16:43:53 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/15 18:24:32 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,28 @@
 # include "libft.h"
 # include "mlx.h"
 # include "keys.h"
+# include "math.h"
 
-# define HEIGHT 500
-# define WIDTH 500
+# define SIZE 250
+# define HEIGHT 2 * SIZE
+# define WIDTH 3 * SIZE
+# define ITERATIONS 100
+
 # define EXIT_ERROR 1
 # define EXIT_OK 0
+
+typedef struct	s_point
+{
+	double	x;
+	double	y;
+}				t_point;
+
+typedef enum	e_name
+{
+	MANDELBROT,
+	JULIA,
+	NONE
+}				t_name;
 
 typedef struct	s_image
 {
@@ -31,7 +48,7 @@ typedef struct	s_image
 
 typedef struct	s_fract
 {
-	char			name;
+	t_name			name;
 	unsigned int	*addr;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -39,10 +56,22 @@ typedef struct	s_fract
 	t_image			image;
 }				t_fract;
 
-char	which_fractal(char *str);
-void	end(t_fract *fract, int end_status);
+t_name		which_fractal(char *str);
+void		draw_fractal(t_fract *fract);
+void		end(t_fract *fract, int end_status);
 
-int		close_win(t_fract *fract);
-int		key_release(int key, t_fract *fract);
+int			close_win(t_fract *fract);
+int			key_release(int key, t_fract *fract);
+
+t_point		coord(t_fract *fract, int x, int y);
+
+int			is_mandelbrot(t_point c);
+
+int			new_image(t_fract *fract);
+
+t_point		c_add(t_point a, t_point b);
+t_point		c_mult(t_point a, t_point b);
+t_point		c_sq(t_point a);
+double		c_mod(t_point a);
 
 #endif
