@@ -1,0 +1,7 @@
+*.swp
+fractol
+obj/
+obj/*.o
+libft/libft.a
+libft/obj/*.o
+libft/obj/
