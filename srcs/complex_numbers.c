@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:11:12 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 11:16:50 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 15:37:19 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_point		c_sq(t_point a)
 	return (c_mult(a, a));
 }
 
-double		c_mod(t_point a)
+double		c_sqmod(t_point a)
 {
-	return (sqrt(a.x * a.x + a.y * a.y));
+	return (a.x * a.x + a.y * a.y);
 }

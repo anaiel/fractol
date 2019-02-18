@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coordinates.c                                      :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/15 17:32:01 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 16:19:00 by anleclab         ###   ########.fr       */
+/*   Created: 2019/02/18 15:43:08 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/18 16:19:14 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_point		coord(t_fract *fract, int x, int y)
+static t_point	julia(t_fract *fract, t_point c)
 {
-	t_point		res;
+	return(c_add(c_sq(c), fract->julia));
+}
 
-	res.x = fract->zoom * (((double)x / SIZE) - 2);
-	res.y = fract->zoom * ((-(double)y / SIZE) + 1);
-	return (res);
+int			iter_julia(t_fract *fract, t_point c)
+{
+	t_point		jul;
+	int			i;
+
+	jul.x = c.x;
+	jul.y = c.y;
+	i = -1;
+	while (++i < ITERATIONS)
+	{
+		jul = julia(fract, jul);
+		if (c_sqmod(jul) > 4)
+			return (i);
+	}
+	return (ITERATIONS);
 }

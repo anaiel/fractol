@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:56:57 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 15:59:51 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,23 @@ static void	put_pixel(t_fract *fract, int x, int y, int iter)
 	fract->addr[x + y * WIDTH] = fract->col_tab[fract->color][iter];
 }
 
-static void	draw_mandelbrot(t_fract *fract)
+void		draw_fractal(t_fract *fract)
 {
 	int		x;
 	int		y;
 	int		iter;
 
+	ft_bzero(fract->addr, WIDTH * HEIGHT * 4);
 	y = -1;
 	while (++y < HEIGHT && (x = -1))
 		while (++x < WIDTH)
 		{
-			iter = is_mandelbrot(coord(fract, x, y));
+			if (fract->name == MANDELBROT)
+				iter = iter_mandelbrot(coord(fract, x, y));
+			else if (fract->name == JULIA)
+				iter = iter_julia(fract, coord(fract, x, y));
 			put_pixel(fract, x, y, iter);
 		}
-}
-
-void		draw_fractal(t_fract *fract)
-{
-	ft_bzero(fract->addr, WIDTH * HEIGHT * 4);
-	if (fract->name == MANDELBROT)
-		draw_mandelbrot(fract);
 	mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr, 0,
 			0);
 }

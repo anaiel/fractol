@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:59:25 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 16:12:40 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft.h"
 # include "mlx.h"
 # include "keys.h"
-# include <math.h>
 # include "colors.h"
 
 # define SIZE 250
@@ -67,6 +66,7 @@ typedef struct	s_fract
 	int				col_tab[NB_COLOR_SCHEMES][ITERATIONS];
 	double			zoom;
 	t_mode			mode;
+	t_point			julia;
 	unsigned int	*addr;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -86,13 +86,14 @@ t_point			coord(t_fract *fract, int x, int y);
 
 void			init_col_tab(t_fract *fract);
 
-int				is_mandelbrot(t_point c);
+int				iter_mandelbrot(t_point c);
+int				iter_julia(t_fract *fract, t_point c);
 
 int				new_image(t_fract *fract);
 
 t_point			c_add(t_point a, t_point b);
 t_point			c_mult(t_point a, t_point b);
 t_point			c_sq(t_point a);
-double			c_mod(t_point a);
+double			c_sqmod(t_point a);
 
 #endif

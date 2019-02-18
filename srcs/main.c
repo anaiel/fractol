@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 14:11:56 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 16:20:17 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	fract_init(t_fract *fract)
 	fract->mlx_ptr = NULL;
 	fract->win_ptr = NULL;
 	fract->img_ptr = NULL;
+	fract->julia.x = 0.3;
+	fract->julia.y = 0.5;
 }
 
 int			main(int ac, char **av)
