@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/15 18:23:50 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/18 12:15:52 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC = main.c \
 	  mandelbrot.c \
 	  coordinates.c \
 	  draw_fractal.c \
-	  new_image.c
+	  new_image.c \
+	  color.c
 
 SRCSFD = srcs/
 OBJSFD = objs/

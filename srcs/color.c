@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/15 17:21:48 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:13:16 by anleclab         ###   ########.fr       */
+/*   Created: 2019/02/18 12:13:25 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/18 12:37:41 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static t_point	mandelbrot(t_point mand, t_point c)
+static int	color_b2o(int iter)
 {
-	return(c_add(c_sq(mand), c));
+	if (iter < ITERATIONS / 200)
+		return (B2O_1);
+	else if (iter < 2 * ITERATIONS / 200)
+		return (B2O_2);
+	else if (iter < 3 * ITERATIONS / 200)
+		return (B2O_3);
+	else if (iter < 4 * ITERATIONS / 200)
+		return (B2O_4);
+	else
+		return (B2O_5);
 }
 
-int		is_mandelbrot(t_point c)
+int			color(t_fract *fract, int iter)
 {
-	t_point	mand;
-	int		i;
-
-	mand.x = 0;
-	mand.y = 0;
-	i = -1;
-	while (++i < ITERATIONS)
-	{
-		mand = mandelbrot(mand, c);
-		if (c_mod(mand) > 2)
-			return (i);
-	}
-	return (ITERATIONS);
+	if (fract->color == BLUE_TO_ORANGE)
+		return(color_b2o(iter));
+	return(0xFFFFFF);
 }

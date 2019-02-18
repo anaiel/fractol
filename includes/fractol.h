@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 11:16:56 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 12:40:33 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include "libft.h"
 # include "mlx.h"
 # include "keys.h"
-# include "math.h"
+# include <math.h>
+# include "colors.h"
 
-# define SIZE 250
+# define SIZE 300
 # define HEIGHT 2 * SIZE
 # define WIDTH 3 * SIZE
-# define ITERATIONS 1000
+# define ITERATIONS 2000
 
 # define EXIT_ERROR 1
 # define EXIT_OK 0
@@ -39,6 +40,12 @@ typedef enum	e_name
 	NONE
 }				t_name;
 
+typedef enum	e_color
+{
+	BLACK_N_WHITE,
+	BLUE_TO_ORANGE
+}				t_color;
+
 typedef struct	s_image
 {
 	int		bpp;
@@ -49,6 +56,7 @@ typedef struct	s_image
 typedef struct	s_fract
 {
 	t_name			name;
+	t_color			color;
 	unsigned int	*addr;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -64,6 +72,8 @@ int			close_win(t_fract *fract);
 int			key_release(int key, t_fract *fract);
 
 t_point		coord(t_fract *fract, int x, int y);
+
+int			color(t_fract *fract, int iter);
 
 int			is_mandelbrot(t_point c);
 

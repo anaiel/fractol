@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/15 17:21:48 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:13:16 by anleclab         ###   ########.fr       */
+/*   Created: 2019/02/18 12:23:26 by anleclab          #+#    #+#             */
+/*   Updated: 2019/02/18 12:26:33 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-static t_point	mandelbrot(t_point mand, t_point c)
-{
-	return(c_add(c_sq(mand), c));
-}
+# define B2O_1 0x052F5F
+# define B2O_2 0x005377 
+# define B2O_3 0x06A77D
+# define B2O_4 0xD5C67A
+# define B2O_5 0xF1A208
 
-int		is_mandelbrot(t_point c)
-{
-	t_point	mand;
-	int		i;
-
-	mand.x = 0;
-	mand.y = 0;
-	i = -1;
-	while (++i < ITERATIONS)
-	{
-		mand = mandelbrot(mand, c);
-		if (c_mod(mand) > 2)
-			return (i);
-	}
-	return (ITERATIONS);
-}
+#endif

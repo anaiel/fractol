@@ -6,27 +6,32 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 11:17:39 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 12:16:29 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	put_pixel(t_fract *fract, int x, int y)
+static void	put_pixel(t_fract *fract, int x, int y, int iter)
 {
-	fract->addr[x + y * WIDTH] = 0xFFFFFF;
+	if (iter >= ITERATIONS)
+		return ;
+	fract->addr[x + y * WIDTH] = color(fract, iter);
 }
 
 static void	draw_mandelbrot(t_fract *fract)
 {
 	int		x;
 	int		y;
+	int		iter;
 
 	y = -1;
 	while (++y < HEIGHT && (x = -1))
 		while (++x < WIDTH)
-			if (is_mandelbrot(coord(fract, x, y)))
-				put_pixel(fract, x, y);
+		{
+			iter = is_mandelbrot(coord(fract, x, y));
+			put_pixel(fract, x, y, iter);
+		}
 }
 
 void	draw_fractal(t_fract *fract)

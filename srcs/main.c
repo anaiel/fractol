@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 11:16:58 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 12:33:50 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	error(char *str, t_fract *fract)
 
 static void	fract_init(t_fract *fract)
 {
+	fract->color = BLUE_TO_ORANGE;
 	fract->addr = NULL;
 	fract->mlx_ptr = NULL;
 	fract->win_ptr = NULL;
