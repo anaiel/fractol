@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 15:44:57 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 17:39:22 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		mouse_event(int button, int x, int y, t_fract *fract)
 {
+	if (button != MOUSE_SCROLL_UP && button != MOUSE_SCROLL_DOWN)
+		return (0);
 	(void)x;
 	(void)y;
 	if (button == MOUSE_SCROLL_UP)
@@ -47,7 +49,25 @@ int		key_release(int key, t_fract *fract)
 {
 	if (key == ESC)
 		end(fract, EXIT_OK);
-	if (key == C)
+	else if (key == C)
 		fract->mode = (fract->mode + 1) % 2;
+	else if (key == SPACE || (fract->name == JULIA && (key == DOWN_ARROW
+					|| key == UP_ARROW || key == RIGHT_ARROW
+					|| key == LEFT_ARROW)))
+	{
+		if (key == SPACE)
+			fract->color = (fract->color + 1) % NB_COLOR_SCHEMES;
+		if (key == DOWN_ARROW)
+			fract->julia.y *= 0.9;
+		if (key == UP_ARROW)
+			fract->julia.y *= 1.1;
+		if (key == LEFT_ARROW)
+			fract->julia.x *= 0.9;
+		if (key == RIGHT_ARROW)
+			fract->julia.x *= 1.1;
+		draw_fractal(fract);
+		mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr,
+				0, 0);
+	}
 	return (0);
 }

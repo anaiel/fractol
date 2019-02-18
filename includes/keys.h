@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:59:43 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 17:35:06 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # define MOUSE_SCROLL_DOWN 5
 
 # define C 8
+
+# define SPACE 49
+
+# define DOWN_ARROW 125
+# define UP_ARROW 126
+# define RIGHT_ARROW 124
+# define LEFT_ARROW 123
 
 /*# define PAD_1 83
 # define PAD_2 84
@@ -38,9 +45,7 @@
 # define Z 6
 # define X 7
 
-# define DOWN_ARROW 125
-# define UP_ARROW 126
-# define SPACE 49
+
 
 # define PLUS 24
 # define PAD_PLUS 69
