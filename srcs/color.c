@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:13:25 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 17:24:55 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 18:07:28 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@ static void	init_rainbow(t_fract *fract)
 
 	i = -1;
 	while (++i < ITERATIONS)
-		if (i < ITERATIONS / 3)
-			fract->col_tab[RAINBOW][i] = gradient(3 * i / ITERATIONS, R_1, R_2);
-		else if (i < 2 * ITERATIONS / 3)
-			fract->col_tab[RAINBOW][i] = gradient(3 * i / ITERATIONS - 1, R_2,
-					R_3);
+		if (i % 3 == 0)
+			fract->col_tab[RAINBOW][i] = gradient(3.0 * (double)i
+					/ (double)ITERATIONS, R_1, R_2);
+		else if (i % 3 == 1)
+			fract->col_tab[RAINBOW][i] = gradient(3.0 * (double)i
+					/ (double)ITERATIONS - 1, R_2, R_3);
 		else
-			fract->col_tab[RAINBOW][i] = gradient(3 * (i - 2 * ITERATIONS / 3)
-					/ ITERATIONS, R_3, R_1);
+			fract->col_tab[RAINBOW][i] = gradient(3.0 * ((double)i - 2
+						* (double)ITERATIONS / 3) / ITERATIONS, R_3, R_1);
 }
 
 void		init_col_tab(t_fract *fract)
