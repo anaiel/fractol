@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:29:57 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:59:43 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 # define MOUSE_SCROLL_UP 4
 # define MOUSE_SCROLL_DOWN 5
+
+# define C 8
 
 /*# define PAD_1 83
 # define PAD_2 84
@@ -51,7 +53,7 @@
 
 # define M 46
 
-# define C 8
+
 # define R 15
 
 # define MOUSE_LEFT_CLICK 1*/

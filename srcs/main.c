@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:50:51 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:57:41 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	fract_init(t_fract *fract)
 	fract->color = BLACK_N_WHITE;
 	init_col_tab(fract);
 	fract->zoom = 1.0;
+	fract->mode = ZOOM;
 	fract->addr = NULL;
 	fract->mlx_ptr = NULL;
 	fract->win_ptr = NULL;

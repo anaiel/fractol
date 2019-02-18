@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:52:10 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:59:25 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ typedef enum	e_color
 	BLUE_TO_ORANGE
 }				t_color;
 
+typedef enum	e_mode
+{
+	ZOOM,
+	COLOR
+}				t_mode;
+
 typedef struct	s_image
 {
 	int		bpp;
@@ -60,6 +66,7 @@ typedef struct	s_fract
 	t_color			color;
 	int				col_tab[NB_COLOR_SCHEMES][ITERATIONS];
 	double			zoom;
+	t_mode			mode;
 	unsigned int	*addr;
 	void			*mlx_ptr;
 	void			*win_ptr;
