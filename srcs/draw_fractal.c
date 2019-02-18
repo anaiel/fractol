@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:33:06 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:51:32 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	put_pixel(t_fract *fract, int x, int y, int iter)
 {
 	if (iter >= ITERATIONS)
 		return ;
-	fract->addr[x + y * WIDTH] = color(fract, iter);
+	fract->addr[x + y * WIDTH] = fract->col_tab[fract->color][iter];
 }
 
 static void	draw_mandelbrot(t_fract *fract)

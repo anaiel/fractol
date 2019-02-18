@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:32:00 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:52:10 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 # include <math.h>
 # include "colors.h"
 
-# define SIZE 300
+# define SIZE 250
 # define HEIGHT 2 * SIZE
 # define WIDTH 3 * SIZE
-# define ITERATIONS 2000
+# define ITERATIONS 1000
+# define NB_COLOR_SCHEMES 2
 
 # define EXIT_ERROR 1
 # define EXIT_OK 0
@@ -57,6 +58,7 @@ typedef struct	s_fract
 {
 	t_name			name;
 	t_color			color;
+	int				col_tab[NB_COLOR_SCHEMES][ITERATIONS];
 	double			zoom;
 	unsigned int	*addr;
 	void			*mlx_ptr;
@@ -75,7 +77,7 @@ int				key_release(int key, t_fract *fract);
 
 t_point			coord(t_fract *fract, int x, int y);
 
-int				color(t_fract *fract, int iter);
+void			init_col_tab(t_fract *fract);
 
 int				is_mandelbrot(t_point c);
 
