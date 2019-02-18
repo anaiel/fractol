@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:23:26 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:30:11 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 16:55:19 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,9 @@
 # define B2O_3 0x06A77D
 # define B2O_4 0xD5C67A
 # define B2O_5 0xF1A208
+
+# define R_1 0xFF0000
+# define R_2 0x00FF00
+# define R_3 0x0000FF
 
 #endif

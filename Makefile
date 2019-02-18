@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/18 15:55:06 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/18 17:14:19 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC = main.c \
 	  draw_fractal.c \
 	  new_image.c \
 	  color.c \
-	  julia.c
+	  julia.c \
+	  gradient.c
 
 SRCSFD = srcs/
 OBJSFD = objs/

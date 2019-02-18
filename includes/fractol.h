@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 16:12:40 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 17:13:01 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define HEIGHT 2 * SIZE
 # define WIDTH 3 * SIZE
 # define ITERATIONS 1000
-# define NB_COLOR_SCHEMES 2
+# define NB_COLOR_SCHEMES 3
 
 # define EXIT_ERROR 1
 # define EXIT_OK 0
@@ -43,7 +43,8 @@ typedef enum	e_name
 typedef enum	e_color
 {
 	BLACK_N_WHITE,
-	BLUE_TO_ORANGE
+	BLUE_TO_ORANGE,
+	RAINBOW
 }				t_color;
 
 typedef enum	e_mode
@@ -85,6 +86,7 @@ int				key_release(int key, t_fract *fract);
 t_point			coord(t_fract *fract, int x, int y);
 
 void			init_col_tab(t_fract *fract);
+int				gradient(double ratio, int start, int end);
 
 int				iter_mandelbrot(t_point c);
 int				iter_julia(t_fract *fract, t_point c);
