@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 15:43:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 16:19:14 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 18:13:09 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static t_point	julia(t_fract *fract, t_point c)
 {
-	return(c_add(c_sq(c), fract->julia));
+	return (c_add(c_sq(c), fract->julia));
 }
 
-int			iter_julia(t_fract *fract, t_point c)
+int				iter_julia(t_fract *fract, t_point c)
 {
 	t_point		jul;
 	int			i;

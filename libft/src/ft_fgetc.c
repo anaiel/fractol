@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:37:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/01/23 15:42:22 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 18:12:25 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int		ft_fgetc(t_file *stream)
 		stream->i = 0;
 	}
 	res = stream->buf[stream->i++];
-	return((int)res);
+	return ((int)res);
 }
