@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:11:12 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 18:16:28 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 11:16:50 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_point		c_add(t_point a, t_point b)
 	t_point	res;
 
 	res.x = a.x + b.x;
-	res.y = a.y + a.y;
+	res.y = a.y + b.y;
 	return (res);
 }
 

@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 18:38:02 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 11:16:56 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define SIZE 250
 # define HEIGHT 2 * SIZE
 # define WIDTH 3 * SIZE
-# define ITERATIONS 100
+# define ITERATIONS 1000
 
 # define EXIT_ERROR 1
 # define EXIT_OK 0
