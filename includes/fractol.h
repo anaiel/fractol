@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 13:26:18 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:32:00 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,25 +65,25 @@ typedef struct	s_fract
 	t_image			image;
 }				t_fract;
 
-t_name		which_fractal(char *str);
-void		draw_fractal(t_fract *fract);
-void		end(t_fract *fract, int end_status);
+t_name			which_fractal(char *str);
+void			draw_fractal(t_fract *fract);
+void			end(t_fract *fract, int end_status);
 
-int			mouse_event(int button, int x, int y, t_fract *fract);
-int			close_win(t_fract *fract);
-int			key_release(int key, t_fract *fract);
+int				mouse_event(int button, int x, int y, t_fract *fract);
+int				close_win(t_fract *fract);
+int				key_release(int key, t_fract *fract);
 
-t_point		coord(t_fract *fract, int x, int y);
+t_point			coord(t_fract *fract, int x, int y);
 
-int			color(t_fract *fract, int iter);
+int				color(t_fract *fract, int iter);
 
-int			is_mandelbrot(t_point c);
+int				is_mandelbrot(t_point c);
 
-int			new_image(t_fract *fract);
+int				new_image(t_fract *fract);
 
-t_point		c_add(t_point a, t_point b);
-t_point		c_mult(t_point a, t_point b);
-t_point		c_sq(t_point a);
-double		c_mod(t_point a);
+t_point			c_add(t_point a, t_point b);
+t_point			c_mult(t_point a, t_point b);
+t_point			c_sq(t_point a);
+double			c_mod(t_point a);
 
 #endif

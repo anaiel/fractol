@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:16:29 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:33:06 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	draw_mandelbrot(t_fract *fract)
 		}
 }
 
-void	draw_fractal(t_fract *fract)
+void		draw_fractal(t_fract *fract)
 {
 	ft_bzero(fract->addr, WIDTH * HEIGHT * 4);
 	if (fract->name == MANDELBROT)

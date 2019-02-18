@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:13:25 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:37:41 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:32:26 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ static int	color_b2o(int iter)
 int			color(t_fract *fract, int iter)
 {
 	if (fract->color == BLUE_TO_ORANGE)
-		return(color_b2o(iter));
-	return(0xFFFFFF);
+		return (color_b2o(iter));
+	return (0xFFFFFF);
 }

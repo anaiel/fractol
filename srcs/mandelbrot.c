@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:21:48 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:13:16 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:32:56 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static t_point	mandelbrot(t_point mand, t_point c)
 {
-	return(c_add(c_sq(mand), c));
+	return (c_add(c_sq(mand), c));
 }
 
-int		is_mandelbrot(t_point c)
+int				is_mandelbrot(t_point c)
 {
 	t_point	mand;
 	int		i;
