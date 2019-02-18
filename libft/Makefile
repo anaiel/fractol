@@ -6,7 +6,7 @@
 #    By: anaiel <anaiel@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:19:55 by anleclab          #+#    #+#              #
-#    Updated: 2019/01/23 15:33:06 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/18 14:36:46 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,10 @@ OBJ_DIR = obj
 OBJ_NAMES = $(SRC_NAMES:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR)/, $(OBJ_NAMES))
 
+RED = \033[0;31m
+GREEN = \033[0;32m
+NONE = \033[0m
+
 .PHONY: all, clean, fclean, re
 
 all: $(NAME)
@@ -102,20 +106,21 @@ all: $(NAME)
 $(NAME): $(OBJ_DIR) $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\033[0;32mlibft.a library created successfully\033[0m"
+	@echo "\t[ $(GREEN)✔$(NONE) ] libft/$(NAME) library"
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
-	@echo "\033[0;33mobj directory created\033[0m"
+	@echo "\t[ $(GREEN)✔$(NONE) ] libft/$(OBJ_DIR) directory"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@gcc $(FLAGS) $(INC) -c $< -o $@
 
 clean:
 	@rm -Rf $(OBJ_DIR)
-	@echo "\033[0;33mobj directory deleted\033[0m"
+	@echo "\t[ $(RED)✗$(NONE) ] libft/$(OBJ_DIR) directory"
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo "\t[ $(RED)✗$(NONE) ] libft/$(NAME) library"
 
 re: fclean all

@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/18 12:15:52 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/18 14:35:48 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,28 +36,42 @@ LIBFT= libft/libft.a
 
 MLX = -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 
-all: check_libft $(NAME)
+RED = \033[0;31m
+GREEN = \033[0;32m
+NONE = \033[0m
 
-$(NAME): $(OBJSFD) $(OBJS) $(LIBFT)
+all: check_libft $(NAME)
+	@echo "Compilation successful"
+
+$(NAME): project $(OBJSFD) $(OBJS) $(LIBFT)
 	@gcc $(FLAGS) $(MLX) $(OBJS) $(LIB_BINARY) -o $@
+	@echo "\t[ \033[0;32m✔\033[0m ] fractol executable"
 
 check_libft:
+	@echo "Checking libft..."
 	@make -C libft
+
+project:
+	@echo "Checking project..."
 
 $(OBJSFD):
 	@mkdir $@
+	@echo "\t[ $(GREEN)✔$(NONE) ] objs/ directory"
 
 $(OBJSFD)%.o: $(SRCSFD)%.c
 	@gcc $(CFLAGS) $(HDR) $(LIBFT_HDR) -c $< -o $@
+	@echo "\t[ $(GREEN)✔$(NONE) ] $@ object"
 
 clean:
 	@rm -rf $(OBJSFD)
+	@echo "\t[ $(RED)✗$(NONE) ] $(OBJSFD) directory"
 	@make -C ./libft clean
 
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
 	@make -C ./libft fclean
 
 re: fclean all
 
-.PHONY: all check_libft clean fclean re
+.PHONY: all check_libft project clean fclean re
