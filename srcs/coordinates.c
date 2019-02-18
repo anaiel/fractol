@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:32:01 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 18:37:33 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:24:48 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_point		coord(t_fract *fract, int x, int y)
 
 	if (fract->name == MANDELBROT)
 	{
-		res.x = ((double)x / SIZE) - 2;
-		res.y = (-(double)y / SIZE) + 1;
+		res.x = fract->zoom * (((double)x / SIZE) - 2);
+		res.y = fract->zoom * ((-(double)y / SIZE) + 1);
 	}
 	else
 	{

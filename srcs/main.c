@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:33:50 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:25:46 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	error(char *str, t_fract *fract)
 static void	fract_init(t_fract *fract)
 {
 	fract->color = BLUE_TO_ORANGE;
+	fract->zoom = 1.0;
 	fract->addr = NULL;
 	fract->mlx_ptr = NULL;
 	fract->win_ptr = NULL;
@@ -53,6 +54,7 @@ int			main(int ac, char **av)
 	if (!new_image(&fract))
 		error("filed to create image", &fract);
 	draw_fractal(&fract);
+	mlx_hook(fract.win_ptr, 4, 0, &mouse_event, &fract);
 	mlx_hook(fract.win_ptr, 17, 0, &close_win, &fract);
 	mlx_hook(fract.win_ptr, 3, 0, &key_release, &fract);
 	mlx_loop(fract.mlx_ptr);

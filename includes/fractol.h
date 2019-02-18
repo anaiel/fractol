@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 12:40:33 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:26:18 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct	s_fract
 {
 	t_name			name;
 	t_color			color;
+	double			zoom;
 	unsigned int	*addr;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -68,6 +69,7 @@ t_name		which_fractal(char *str);
 void		draw_fractal(t_fract *fract);
 void		end(t_fract *fract, int end_status);
 
+int			mouse_event(int button, int x, int y, t_fract *fract);
 int			close_win(t_fract *fract);
 int			key_release(int key, t_fract *fract);
 

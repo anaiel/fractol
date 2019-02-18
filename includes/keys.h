@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/15 16:40:28 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:23:26 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define KEYS_H
 
 # define ESC 53
+
+# define MOUSE_SCROLL_UP 4
+# define MOUSE_SCROLL_DOWN 5
 
 /*# define PAD_1 83
 # define PAD_2 84
@@ -51,8 +54,6 @@
 # define C 8
 # define R 15
 
-# define MOUSE_SCROLL_UP 4
-# define MOUSE_SCROLL_DOWN 5
 # define MOUSE_LEFT_CLICK 1*/
 
 #endif
