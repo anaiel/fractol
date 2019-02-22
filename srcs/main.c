@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 18:00:44 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 11:36:39 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ static void	fract_init(t_fract *fract)
 	fract->img_ptr = NULL;
 	fract->julia.x = 0.3;
 	fract->julia.y = 0.5;
+	if (fract->name == MANDELBROT)
+	{
+		fract->width = 3 * SIZE;
+		fract->height = 2 * SIZE;
+	}
+	else if (fract->name == JULIA)
+	{
+		fract->width = 2 * SIZE;
+		fract->height = 2 * SIZE;
+	}
 }
 
 int			main(int ac, char **av)
@@ -52,8 +62,8 @@ int			main(int ac, char **av)
 	fract_init(&fract);
 	if (!(fract.mlx_ptr = mlx_init()))
 		error("failed to initialize mlx connection", &fract);
-	if (!(fract.win_ptr = mlx_new_window(fract.mlx_ptr, WIDTH, HEIGHT,
-											av[1])))
+	if (!(fract.win_ptr = mlx_new_window(fract.mlx_ptr, fract.width,
+					fract.height, av[1])))
 		error("mlx failure", &fract);
 	if (!new_image(&fract))
 		error("filed to create image", &fract);

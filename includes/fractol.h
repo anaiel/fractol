@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 18:07:46 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 12:19:24 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 # include "mlx.h"
 # include "keys.h"
 # include "colors.h"
+# include <math.h>
 
 # define SIZE 250
-# define HEIGHT 2 * SIZE
-# define WIDTH 3 * SIZE
 # define ITERATIONS 1000
-# define NB_COLOR_SCHEMES 3
+# define NB_COLOR_SCHEMES 4
 
 # define EXIT_ERROR 1
 # define EXIT_OK 0
@@ -32,6 +31,12 @@ typedef struct	s_point
 	double	x;
 	double	y;
 }				t_point;
+
+typedef struct	s_felem
+{
+	t_point	val;
+	int		exit;
+}				t_felem;
 
 typedef enum	e_name
 {
@@ -44,7 +49,8 @@ typedef enum	e_color
 {
 	BLACK_N_WHITE,
 	BLUE_TO_ORANGE,
-	RAINBOW
+	RAINBOW,
+	SMOOTH
 }				t_color;
 
 typedef enum	e_mode
@@ -63,6 +69,8 @@ typedef struct	s_image
 typedef struct	s_fract
 {
 	t_name			name;
+	int				width;
+	int				height;
 	t_color			color;
 	int				col_tab[NB_COLOR_SCHEMES][ITERATIONS];
 	double			zoom;
@@ -88,8 +96,8 @@ t_point			coord(t_fract *fract, int x, int y);
 void			init_col_tab(t_fract *fract);
 int				gradient(double ratio, int start, int end);
 
-int				iter_mandelbrot(t_point c);
-int				iter_julia(t_fract *fract, t_point c);
+t_felem			iter_mandelbrot(t_point c);
+t_felem			iter_julia(t_fract *fract, t_point c);
 
 int				new_image(t_fract *fract);
 

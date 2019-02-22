@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 18:02:36 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 10:40:55 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int		key_release(int key, t_fract *fract)
 		if (key == SPACE)
 			fract->color = (fract->color + 1) % NB_COLOR_SCHEMES;
 		if (key == DOWN_ARROW)
-			fract->julia.y *= 0.9;
+			fract->julia.y *= 0.99;
 		if (key == UP_ARROW)
-			fract->julia.y *= 1.1;
+			fract->julia.y *= 1.01;
 		if (key == LEFT_ARROW)
-			fract->julia.x *= 0.9;
+			fract->julia.x *= 0.99;
 		if (key == RIGHT_ARROW)
-			fract->julia.x *= 1.1;
+			fract->julia.x *= 1.01;
 		draw_fractal(fract);
 		mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr,
 				0, 0);

@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:13:25 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 18:07:28 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 12:11:59 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,21 @@ static void	init_rainbow(t_fract *fract)
 	i = -1;
 	while (++i < ITERATIONS)
 		if (i % 3 == 0)
-			fract->col_tab[RAINBOW][i] = gradient(3.0 * (double)i
-					/ (double)ITERATIONS, R_1, R_2);
+			fract->col_tab[RAINBOW][i] = 0xFF0000; 
 		else if (i % 3 == 1)
-			fract->col_tab[RAINBOW][i] = gradient(3.0 * (double)i
-					/ (double)ITERATIONS - 1, R_2, R_3);
+			fract->col_tab[RAINBOW][i] = 0x00FF00;
 		else
-			fract->col_tab[RAINBOW][i] = gradient(3.0 * ((double)i - 2
-						* (double)ITERATIONS / 3) / ITERATIONS, R_3, R_1);
+			fract->col_tab[RAINBOW][i] = 0x0000FF;
+}
+
+static void init_smooth(t_fract *fract)
+{
+	int		i;
+
+	i = -1;
+	while (++i < ITERATIONS)
+		fract->col_tab[SMOOTH][i]
+			= gradient((double)(i / ITERATIONS), B2O_1, B2O_5);
 }
 
 void		init_col_tab(t_fract *fract)
@@ -49,4 +56,5 @@ void		init_col_tab(t_fract *fract)
 			fract->col_tab[BLUE_TO_ORANGE][i] = B2O_5;
 	}
 	init_rainbow(fract);
+	init_smooth(fract);
 }
