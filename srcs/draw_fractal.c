@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 14:37:40 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 14:57:20 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	max_it(int iter)
 {
 	if (iter >= ITERATIONS)
-		return (ITERATIONS -1);
+		return (ITERATIONS - 1);
 	else if (iter < 0)
 		return (0);
 	else
@@ -31,12 +31,12 @@ static void	put_pixel(t_fract *fract, int x, int y, t_felem elem)
 	}
 	if (fract->color == BLACK_N_WHITE || fract->color == BLUE_TO_ORANGE
 			|| fract->color == RAINBOW)
-		fract->addr[x + y * fract->width]
-			= fract->col_tab[fract->color][elem.exit];
+		fract->addr[x + y * fract->width] = fract->col_tab[fract->color]
+				[elem.exit];
 	else
-		fract->addr[x + y * fract->width]
-			= fract->col_tab[fract->color][max_it((int)(100
-			* (elem.exit - log2(log2(sqrt(c_sqmod(elem.val)))))))];
+		fract->addr[x + y * fract->width] = fract->col_tab[fract->color]
+				[max_it((int)(100 * ((double)elem.exit
+				- log2(log2(sqrt(c_sqmod(elem.val)))))))];
 }
 
 void		draw_fractal(t_fract *fract)
