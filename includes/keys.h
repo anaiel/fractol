@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 17:35:06 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:22:11 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define MOUSE_SCROLL_DOWN 5
 
 # define C 8
+
+# define M 46
 
 # define SPACE 49
 
@@ -56,7 +58,7 @@
 # define I 34
 # define T 17
 
-# define M 46
+
 
 
 # define R 15

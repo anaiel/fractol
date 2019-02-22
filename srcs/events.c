@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 14:57:31 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:30:57 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		key_release(int key, t_fract *fract)
 		end(fract, EXIT_OK);
 	else if (key == C)
 		fract->mode = (fract->mode + 1) % 2;
+	else if (key == M)
+		fract->is_active_mouse = (fract->is_active_mouse) ? 0 : 1;
 	else if (key == SPACE || (fract->name == JULIA && (key == DOWN_ARROW
 					|| key == UP_ARROW || key == RIGHT_ARROW
 					|| key == LEFT_ARROW)))
@@ -69,5 +71,23 @@ int		key_release(int key, t_fract *fract)
 		mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr,
 				0, 0);
 	}
+	return (0);
+}
+
+int		mouse_move(int x, int y, t_fract *fract)
+{
+	if (fract->is_active_mouse)
+		if (fract->name == JULIA)
+		{
+			fract->mouse.prev_x = (!fract->mouse.x) ? x : fract->mouse.x;
+			fract->mouse.prev_y = (!fract->mouse.y) ? y : fract->mouse.y;
+			fract->mouse.x = x;
+			fract->mouse.y = y;
+			fract->julia.x += (double)(fract->mouse.x - fract->mouse.prev_x)
+					/ 10000;
+			fract->julia.y += (double)(fract->mouse.y - fract->mouse.prev_y)
+					/ 10000;
+			draw_fractal(fract);
+		}
 	return (0);
 }

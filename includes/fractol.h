@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 14:40:26 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:21:50 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,22 @@ typedef struct	s_image
 	int		endian;
 }				t_image;
 
+typedef struct	s_mouse
+{
+	int		x;
+	int		y;
+	int		prev_x;
+	int		prev_y;
+}				t_mouse;
+
 typedef struct	s_fract
 {
 	t_name			name;
 	int				width;
+	int				is_active_mouse;
 	int				height;
 	t_color			color;
+	t_mouse			mouse;
 	int				col_tab[NB_COLOR_SCHEMES][1000];
 	double			zoom;
 	t_mode			mode;
@@ -91,6 +101,7 @@ void			end(t_fract *fract, int end_status);
 int				mouse_event(int button, int x, int y, t_fract *fract);
 int				close_win(t_fract *fract);
 int				key_release(int key, t_fract *fract);
+int				mouse_move(int x, int y, t_fract *fract);
 
 t_point			coord(t_fract *fract, int x, int y);
 

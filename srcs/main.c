@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 12:27:58 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:21:43 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ static void	fract_init(t_fract *fract)
 	fract->img_ptr = NULL;
 	fract->julia.x = 0.3;
 	fract->julia.y = 0.5;
+	fract->is_active_mouse = 1;
+	fract->mouse.x = 0;
+	fract->mouse.y = 0;
 	if (fract->name == MANDELBROT)
 	{
 		fract->width = 3 * SIZE;
@@ -71,5 +74,6 @@ int			main(int ac, char **av)
 	mlx_hook(fract.win_ptr, 4, 0, &mouse_event, &fract);
 	mlx_hook(fract.win_ptr, 17, 0, &close_win, &fract);
 	mlx_hook(fract.win_ptr, 3, 0, &key_release, &fract);
+	mlx_hook(fract.win_ptr, 6, 0, &mouse_move, &fract);
 	mlx_loop(fract.mlx_ptr);
 }
