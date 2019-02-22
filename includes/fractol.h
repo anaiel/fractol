@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 12:19:24 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 14:40:26 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define SIZE 250
 # define ITERATIONS 1000
+# define COL_TAB_SIZE 1000
 # define NB_COLOR_SCHEMES 4
 
 # define EXIT_ERROR 1
@@ -50,7 +51,7 @@ typedef enum	e_color
 	BLACK_N_WHITE,
 	BLUE_TO_ORANGE,
 	RAINBOW,
-	SMOOTH
+	S_BLUE_TO_ORANGE
 }				t_color;
 
 typedef enum	e_mode
@@ -72,7 +73,7 @@ typedef struct	s_fract
 	int				width;
 	int				height;
 	t_color			color;
-	int				col_tab[NB_COLOR_SCHEMES][ITERATIONS];
+	int				col_tab[NB_COLOR_SCHEMES][1000];
 	double			zoom;
 	t_mode			mode;
 	t_point			julia;

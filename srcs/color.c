@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:13:25 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 12:11:59 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 14:40:13 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	init_rainbow(t_fract *fract)
 	int		i;
 
 	i = -1;
-	while (++i < ITERATIONS)
+	while (++i < COL_TAB_SIZE)
 		if (i % 3 == 0)
 			fract->col_tab[RAINBOW][i] = 0xFF0000; 
 		else if (i % 3 == 1)
@@ -31,9 +31,9 @@ static void init_smooth(t_fract *fract)
 	int		i;
 
 	i = -1;
-	while (++i < ITERATIONS)
-		fract->col_tab[SMOOTH][i]
-			= gradient((double)(i / ITERATIONS), B2O_1, B2O_5);
+	while (++i < COL_TAB_SIZE)
+		fract->col_tab[S_BLUE_TO_ORANGE][i]
+			= gradient((double)(i / COL_TAB_SIZE), B2O_1, B2O_5);
 }
 
 void		init_col_tab(t_fract *fract)
@@ -41,7 +41,7 @@ void		init_col_tab(t_fract *fract)
 	int		i;
 
 	i = -1;
-	while (++i < ITERATIONS)
+	while (++i < COL_TAB_SIZE)
 	{
 		fract->col_tab[BLACK_N_WHITE][i] = 0xFFFFFF;
 		if (i < ITERATIONS / 200)

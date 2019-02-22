@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 10:40:55 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/22 14:41:57 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int		mouse_event(int button, int x, int y, t_fract *fract)
 	if (button == MOUSE_SCROLL_UP)
 	{
 		if (fract->mode == COLOR)
-			fract->color = (fract->color + 1) % NB_COLOR_SCHEMES;
+			fract->color = (fract->color + 1) % (NB_COLOR_SCHEMES);
 		else if (fract->mode == ZOOM)
 			fract->zoom *= 0.9;
 	}
 	else if (button == MOUSE_SCROLL_DOWN)
 	{
 		if (fract->mode == COLOR)
-			fract->color = (fract->color == 0) ? NB_COLOR_SCHEMES - 1
+			fract->color = (fract->color == 0) ? NB_COLOR_SCHEMES- 1
 				: fract->color - 1;
 		else if (fract->mode == ZOOM)
 			fract->zoom *= 1.1;
