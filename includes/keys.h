@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 15:22:11 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 15:28:36 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 
 # define SPACE 49
 
-# define DOWN_ARROW 125
-# define UP_ARROW 126
-# define RIGHT_ARROW 124
-# define LEFT_ARROW 123
+# define DOWN_ARR 125
+# define UP_ARR 126
+# define RIGHT_ARR 124
+# define LEFT_ARR 123
 
 /*# define PAD_1 83
 # define PAD_2 84

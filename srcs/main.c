@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 15:21:43 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 14:40:31 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@ static void	usage(void)
 {
 	ft_putstr("usage: ./fractol fractal_name\n");
 	ft_putstr("Available fractals: [mandelbrot/man] [julia/jul]\n");
-}
-
-static void	error(char *str, t_fract *fract)
-{
-	ft_putstr_fd("error :", 2);
-	ft_putstr_fd(str, 2);
-	ft_putstr_fd("\n", 2);
-	end(fract, EXIT_ERROR);
 }
 
 static void	fract_init(t_fract *fract)
@@ -55,7 +47,7 @@ static void	fract_init(t_fract *fract)
 
 int			main(int ac, char **av)
 {
-	t_fract	fract;
+	t_fract		fract;
 
 	if (ac != 2 || (fract.name = which_fractal(av[1])) == NONE)
 	{
@@ -70,7 +62,8 @@ int			main(int ac, char **av)
 		error("mlx failure", &fract);
 	if (!new_image(&fract))
 		error("filed to create image", &fract);
-	draw_fractal(&fract);
+	if (!draw_fractal(&fract))
+		error("failed to draw fractal", &fract);
 	mlx_hook(fract.win_ptr, 4, 0, &mouse_event, &fract);
 	mlx_hook(fract.win_ptr, 17, 0, &close_win, &fract);
 	mlx_hook(fract.win_ptr, 3, 0, &key_release, &fract);

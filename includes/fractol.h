@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 15:21:50 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 15:28:21 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include "keys.h"
 # include "colors.h"
 # include <math.h>
+# include <pthread.h>
 
 # define SIZE 250
 # define ITERATIONS 1000
 # define COL_TAB_SIZE 1000
 # define NB_COLOR_SCHEMES 4
+# define NB_THREADS 20
 
 # define EXIT_ERROR 1
 # define EXIT_OK 0
@@ -94,9 +96,16 @@ typedef struct	s_fract
 	t_image			image;
 }				t_fract;
 
+typedef struct	s_thread_param
+{
+	int			id;
+	t_fract		*fract;
+}				t_thread_param;
+
 t_name			which_fractal(char *str);
-void			draw_fractal(t_fract *fract);
+int				draw_fractal(t_fract *fract);
 void			end(t_fract *fract, int end_status);
+void			error(char *str, t_fract *fract);
 
 int				mouse_event(int button, int x, int y, t_fract *fract);
 int				close_win(t_fract *fract);

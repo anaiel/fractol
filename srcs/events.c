@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 15:30:57 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 15:28:19 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int		mouse_event(int button, int x, int y, t_fract *fract)
 		else if (fract->mode == ZOOM)
 			fract->zoom *= 1.1;
 	}
-	draw_fractal(fract);
+	if (!draw_fractal(fract))
+		error("failed to draw fractal", fract);
 	mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr, 0,
 			0);
 	return (0);
@@ -53,21 +54,21 @@ int		key_release(int key, t_fract *fract)
 		fract->mode = (fract->mode + 1) % 2;
 	else if (key == M)
 		fract->is_active_mouse = (fract->is_active_mouse) ? 0 : 1;
-	else if (key == SPACE || (fract->name == JULIA && (key == DOWN_ARROW
-					|| key == UP_ARROW || key == RIGHT_ARROW
-					|| key == LEFT_ARROW)))
+	else if (key == SPACE || (fract->name == JULIA && (key == DOWN_ARR
+					|| key == UP_ARR || key == RIGHT_ARR || key == LEFT_ARR)))
 	{
 		if (key == SPACE)
 			fract->color = (fract->color + 1) % NB_COLOR_SCHEMES;
-		if (key == DOWN_ARROW)
+		else if (key == DOWN_ARROW)
 			fract->julia.y *= 0.99;
-		if (key == UP_ARROW)
+		else if (key == UP_ARROW)
 			fract->julia.y *= 1.01;
-		if (key == LEFT_ARROW)
+		else if (key == LEFT_ARROW)
 			fract->julia.x *= 0.99;
-		if (key == RIGHT_ARROW)
+		else if (key == RIGHT_ARROW)
 			fract->julia.x *= 1.01;
-		draw_fractal(fract);
+		if (!draw_fractal(fract))
+			error("failed to draw fractal", fract);
 		mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr,
 				0, 0);
 	}
