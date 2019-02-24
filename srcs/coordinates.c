@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:32:01 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/22 14:55:43 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:01:41 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ t_point		coord(t_fract *fract, int x, int y)
 		res.x = fract->zoom * (((double)x / SIZE) - 2);
 		res.y = fract->zoom * ((-(double)y / SIZE) + 1);
 	}
-	else
+	else if (fract->name == JULIA)
 	{
 		res.x = fract->zoom * ((2 * (double)x / SIZE) - 2);
 		res.y = fract->zoom * ((-2 * (double)y / SIZE) + 2);
+	}
+	else
+	{
+		res.x = fract->zoom * (((double)x / SIZE) - 2);
+		res.y = fract->zoom * ((-(double)y / SIZE) + 1.5);
 	}
 	return (res);
 }

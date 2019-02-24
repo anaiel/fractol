@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 15:26:45 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 15:41:44 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void	*draw_fract_thread(void *thread_param)
 				elem = iter_mandelbrot(coord(p.fract, x, y));
 			else if (p.fract->name == JULIA)
 				elem = iter_julia(p.fract, coord(p.fract, x, y));
+			else if (p.fract->name == BURNING_SHIP)
+				elem = iter_burning_ship(coord(p.fract, x, y));
 			put_pixel(p.fract, x, y, elem);
 		}
 	return (NULL);

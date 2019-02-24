@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 15:28:21 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 15:41:08 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef enum	e_name
 {
 	MANDELBROT,
 	JULIA,
+	BURNING_SHIP,
 	NONE
 }				t_name;
 
@@ -118,6 +119,7 @@ void			init_col_tab(t_fract *fract);
 int				gradient(double ratio, int start, int end);
 
 t_felem			iter_mandelbrot(t_point c);
+t_felem			iter_burning_ship(t_point c);
 t_felem			iter_julia(t_fract *fract, t_point c);
 
 int				new_image(t_fract *fract);

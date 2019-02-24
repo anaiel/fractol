@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/18 17:14:19 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/24 15:49:02 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC = main.c \
 	  new_image.c \
 	  color.c \
 	  julia.c \
-	  gradient.c
+	  gradient.c \
+	  burning_ship.c
 
 SRCSFD = srcs/
 OBJSFD = objs/
