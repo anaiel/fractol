@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 15:56:25 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:46:13 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 int		mouse_event(int button, int x, int y, t_fract *fract)
 {
+	t_point	tmp;
+
 	if (button != MOUSE_SCROLL_UP && button != MOUSE_SCROLL_DOWN)
 		return (0);
-	(void)x;
-	(void)y;
+	tmp = coord(fract, x, y);
 	if (button == MOUSE_SCROLL_UP)
 	{
 		if (fract->mode == COLOR)
 			fract->color = (fract->color + 1) % (NB_COLOR_SCHEMES);
 		else if (fract->mode == ZOOM)
+		{
+			fract->x_offset += 0.1 * fract->zoom * tmp.x;
+			fract->y_offset += 0.1 * fract->zoom * tmp.y;
 			fract->zoom *= 0.9;
+		}
 	}
 	else if (button == MOUSE_SCROLL_DOWN)
 	{
@@ -31,7 +36,11 @@ int		mouse_event(int button, int x, int y, t_fract *fract)
 			fract->color = (fract->color == 0) ? NB_COLOR_SCHEMES - 1
 				: fract->color - 1;
 		else if (fract->mode == ZOOM)
+		{
+			fract->x_offset -= 0.1 * fract->zoom * tmp.x;
+			fract->y_offset -= 0.1 * fract->zoom * tmp.y;
 			fract->zoom *= 1.1;
+		}
 	}
 	if (!draw_fractal(fract))
 		error("failed to draw fractal", fract);

@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:32:01 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 16:01:41 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:49:49 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ t_point		coord(t_fract *fract, int x, int y)
 		res.x = fract->zoom * (((double)x / SIZE) - 2);
 		res.y = fract->zoom * ((-(double)y / SIZE) + 1.5);
 	}
+	res.x += fract->x_offset;
+	res.y += fract->y_offset;
 	return (res);
 }

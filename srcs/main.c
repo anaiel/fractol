@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 16:01:26 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:48:36 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@ static void	usage(void)
 	ft_putstr("usage: ./fractol fractal_name\n");
 	ft_putstr("Available fractals: [mandelbrot/man] [julia/jul]");
 	ft_putstr(" [burning ship/burn]\n");
+}
+
+static void	fract_init_size(t_fract *fract)
+{
+	if (fract->name == MANDELBROT)
+	{
+		fract->width = 3 * SIZE;
+		fract->height = 2 * SIZE;
+	}
+	else if (fract->name == JULIA)
+	{
+		fract->width = 2 * SIZE;
+		fract->height = 2 * SIZE;
+	}
+	else if (fract->name == BURNING_SHIP)
+	{
+		fract->width = 4 * SIZE;
+		fract->height = 4 * SIZE;
+	}
 }
 
 static void	fract_init(t_fract *fract)
@@ -34,21 +53,9 @@ static void	fract_init(t_fract *fract)
 	fract->is_active_mouse = 1;
 	fract->mouse.x = 0;
 	fract->mouse.y = 0;
-	if (fract->name == MANDELBROT || fract->name == BURNING_SHIP)
-	{
-		fract->width = 3 * SIZE;
-		fract->height = 2 * SIZE;
-	}
-	else if (fract->name == JULIA)
-	{
-		fract->width = 2 * SIZE;
-		fract->height = 2 * SIZE;
-	}
-	else if (fract->name == BURNING_SHIP)
-	{
-		fract->width = 4 * SIZE;
-		fract->height = 4 * SIZE;
-	}
+	fract_init_size(fract);
+	fract->x_offset = 0;
+	fract->y_offset = 0;
 }
 
 int			main(int ac, char **av)

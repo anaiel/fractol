@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 15:41:08 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/24 16:28:51 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ typedef struct	s_fract
 	double			zoom;
 	t_mode			mode;
 	t_point			julia;
+	double			x_offset;
+	double			y_offset;
 	unsigned int	*addr;
 	void			*mlx_ptr;
 	void			*win_ptr;
