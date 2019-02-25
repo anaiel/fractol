@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 15:41:44 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/25 18:08:53 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	max_it(int iter)
 {
-	if (iter >= ITERATIONS)
-		return (ITERATIONS - 1);
+	if (iter >= COL_TAB_SIZE)
+		return (COL_TAB_SIZE - 1);
 	else if (iter < 0)
 		return (0);
 	else
@@ -32,7 +32,7 @@ static void	put_pixel(t_fract *fract, int x, int y, t_felem elem)
 	if (fract->color == BLACK_N_WHITE || fract->color == BLUE_TO_ORANGE
 			|| fract->color == RAINBOW)
 		fract->addr[x + y * fract->width] = fract->col_tab[fract->color]
-				[elem.exit];
+				[max_it(elem.exit)];
 	else
 		fract->addr[x + y * fract->width] = fract->col_tab[fract->color]
 				[max_it((int)(100 * ((double)elem.exit
@@ -48,7 +48,7 @@ static void	*draw_fract_thread(void *thread_param)
 	t_thread_param	p;
 
 	p = *(t_thread_param *)thread_param;
-	y = p.id * p.fract->height / NB_THREADS - 1;
+	y = p.id * (p.fract->height / NB_THREADS) - 1;
 	max = y + p.fract->height / NB_THREADS + 1;
 	max += (p.id == NB_THREADS - 1) ? p.fract->height % NB_THREADS : 0;
 	while (++y < max && (x = -1))
@@ -82,7 +82,7 @@ int			draw_fractal(t_fract *fract)
 		res = pthread_create(thread + i, NULL, &draw_fract_thread,
 					(void *)(thread_param + i));
 	}
-	while (--i)
+	while (--i >= 0)
 		pthread_join(thread[i], NULL);
 	if (res)
 		return (0);

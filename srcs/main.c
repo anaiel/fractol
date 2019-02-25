@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 16:48:36 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/25 17:56:27 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static void	fract_init_size(t_fract *fract)
 	}
 	else if (fract->name == BURNING_SHIP)
 	{
-		fract->width = 4 * SIZE;
-		fract->height = 4 * SIZE;
+		fract->width = 3 * SIZE;
+		fract->height = 3 * SIZE;
 	}
 }
 

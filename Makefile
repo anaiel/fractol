@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/24 15:49:02 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/25 17:43:43 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,17 @@ SRC = main.c \
 	  julia.c \
 	  gradient.c \
 	  burning_ship.c
-
 SRCSFD = srcs/
 OBJSFD = objs/
 OBJS = $(addprefix $(OBJSFD),$(SRC:.c=.o))
 
-HDR = -I./includes
+HDR = fractol.h \
+	  keys.h \
+	  colors.h
+HDRSFD = includes/
+HDRS = $(addprefix $(HDRSFD),$(HDR))
+
+HDR_INC = -I./includes
 LIBFT_HDR = -I./libft/inc
 LIB_BINARY = -L./libft -lft
 LIBFT= libft/libft.a
@@ -43,10 +48,10 @@ RED = \033[0;31m
 GREEN = \033[0;32m
 NONE = \033[0m
 
-all: check_libft $(NAME)
+all: check_libft $(NAME) $(HDRS)
 	@echo "Compilation successful"
 
-$(NAME): project $(OBJSFD) $(OBJS) $(LIBFT)
+$(NAME): project $(OBJSFD) $(OBJS) $(LIBFT) $(HDRS)
 	@gcc $(FLAGS) $(MLX) $(OBJS) $(LIB_BINARY) -o $@
 	@echo "\t[ \033[0;32m✔\033[0m ] fractol executable"
 
@@ -61,8 +66,8 @@ $(OBJSFD):
 	@mkdir $@
 	@echo "\t[ $(GREEN)✔$(NONE) ] objs/ directory"
 
-$(OBJSFD)%.o: $(SRCSFD)%.c
-	@gcc $(CFLAGS) $(HDR) $(LIBFT_HDR) -c $< -o $@
+$(OBJSFD)%.o: $(SRCSFD)%.c $(HDRS)
+	@gcc $(CFLAGS) $(HDR_INC) $(LIBFT_HDR) -c $< -o $@
 	@echo "\t[ $(GREEN)✔$(NONE) ] $@ object"
 
 clean:

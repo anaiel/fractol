@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:23:26 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/18 17:49:10 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/25 17:46:08 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,11 @@
 # define R_1 0xFF0000
 # define R_2 0x00FF00
 # define R_3 0x0000FF
+
+# define RED_5 0x8C271E
+# define RED_4 0x550C18
+# define RED_3 0x443730
+# define RED_2 0x443730
+# define RED_1 0x0E0004
 
 #endif
