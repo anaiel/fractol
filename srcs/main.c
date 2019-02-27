@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 09:21:29 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 10:18:05 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,21 @@ static void	fract_init(t_fract *fract)
 	fract->y_offset = 0;
 }
 
+static void	print_controls(void)
+{
+	ft_putstr("\n//////////////////////// CONTROLS ////////////////////////\n");
+	ft_putstr("\n  \033[0;33mchange mode\033[0m: C\n");
+	ft_putstr("  \033[0;33mzoom\033[0m: scroll up/down (in zoom mode)\n");
+	ft_putstr("  \033[0;33mcolor\033[0m: SPACE / scroll up/down (in color ");
+	ft_putstr("mode)\n");
+	ft_putstr("  \033[0;33mmove fractal\033[0m: up/down/left/right arrows\n");
+	ft_putstr("  \033[0;33mchange julia parameters\033[0m: W/A/S/D / move ");
+	ft_putstr("mouse (if active)\n");
+	ft_putstr("  \033[0;33mactivate/deactivate mouse\033[0m: M\n");
+	ft_putstr("  \033[0;33mexit\033[0m: ESC / red cross\n\n");
+	ft_putstr("//////////////////////////////////////////////////////////\n\n");
+}
+
 int			main(int ac, char **av)
 {
 	t_fract		fract;
@@ -77,6 +92,7 @@ int			main(int ac, char **av)
 		error("filed to create image", &fract);
 	if (!draw_fractal(&fract))
 		error("failed to draw fractal", &fract);
+	print_controls();
 	mlx_hook(fract.win_ptr, 4, 0, &mouse_event, &fract);
 	mlx_hook(fract.win_ptr, 17, 0, &close_win, &fract);
 	mlx_hook(fract.win_ptr, 3, 0, &key_release, &fract);
