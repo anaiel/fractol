@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 09:31:37 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 15:53:19 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define SIZE 250
 # define ITERATIONS 1000
 # define COL_TAB_SIZE 1000
-# define NB_COLOR_SCHEMES 4
+# define NB_COLOR_SCHEMES 5
 # define NB_THREADS 20
 
 # define EXIT_ERROR 1
@@ -55,6 +55,7 @@ typedef enum	e_color
 	BLUE_TO_ORANGE,
 	RAINBOW,
 	S_BLUE_TO_ORANGE,
+	FIRE
 }				t_color;
 
 typedef enum	e_mode

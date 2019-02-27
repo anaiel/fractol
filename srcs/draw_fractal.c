@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:45:08 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/25 18:08:53 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 15:56:37 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ static int	max_it(int iter)
 
 static void	put_pixel(t_fract *fract, int x, int y, t_felem elem)
 {
+	int		glow;
+
+	glow = (fract->color == S_BLUE_TO_ORANGE) ? 100 : 10;
 	if (elem.exit >= ITERATIONS)
-	{
-		fract->addr[x + y * fract->width] = 0x000000;
 		return ;
-	}
 	if (fract->color == BLACK_N_WHITE || fract->color == BLUE_TO_ORANGE
 			|| fract->color == RAINBOW)
 		fract->addr[x + y * fract->width] = fract->col_tab[fract->color]
 				[max_it(elem.exit)];
 	else
 		fract->addr[x + y * fract->width] = fract->col_tab[fract->color]
-				[max_it((int)(100 * ((double)elem.exit
+				[max_it((int)(glow * ((double)elem.exit
 				- log2(log2(sqrt(c_sqmod(elem.val)))))))];
 }
 

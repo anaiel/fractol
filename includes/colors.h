@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:23:26 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/25 17:46:08 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 15:54:19 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 # define B2O_4 0xD5C67A
 # define B2O_5 0xF1A208
 
-# define R_1 0xFF0000
-# define R_2 0x00FF00
-# define R_3 0x0000FF
+# define R_1 0x1F2421
+# define R_2 0x216869
+# define R_3 0x49A078
+# define R_4 0x9CC5A1
+# define R_5 0xDCE1DE
 
-# define RED_5 0x8C271E
-# define RED_4 0x550C18
-# define RED_3 0x443730
-# define RED_2 0x443730
-# define RED_1 0x0E0004
+# define FIRE_1 0x1E0503
+# define FIRE_2 0x821810
 
 #endif
