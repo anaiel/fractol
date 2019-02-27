@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 09:00:02 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 09:31:36 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:04:10 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	change_julia_param(t_fract *fract, int key)
 void	move_fractal(t_fract *fract, int key)
 {
 	if (key == UP_ARR)
-		fract->y_offset -= 0.1;
+		fract->y_offset += fract->zoom * 0.1;
 	else if (key == DOWN_ARR)
-		fract->y_offset += 0.1;
+		fract->y_offset -= fract->zoom * 0.1;
 	else if (key == LEFT_ARR)
-		fract->x_offset -= 0.1;
+		fract->x_offset -= fract->zoom * 0.1;
 	else if (key == RIGHT_ARR)
-		fract->y_offset += 0.1;
+		fract->x_offset += fract->zoom * 0.1;
 }
