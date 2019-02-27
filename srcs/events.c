@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 09:25:58 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 11:30:16 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 int		mouse_event(int button, int x, int y, t_fract *fract)
 {
 	t_point	tmp;
+	t_point mid;
 
 	if (button != MOUSE_SCROLL_UP && button != MOUSE_SCROLL_DOWN)
 		return (0);
 	tmp = coord(fract, x, y);
+	mid = coord(fract, fract->width / 2, fract->height / 2);
 	if (button == MOUSE_SCROLL_UP)
 	{
 		if (fract->mode == COLOR)
 			fract->color = (fract->color + 1) % (NB_COLOR_SCHEMES);
 		else if (fract->mode == ZOOM)
 		{
-			fract->x_offset += 0.1 * fract->zoom * tmp.x;
-			fract->y_offset += 0.1 * fract->zoom * tmp.y;
+			fract->x_offset += 0.1 * fract->zoom * tmp.x
+				- 0.2 * (mid.x - tmp.x);
+			fract->y_offset += 0.1 * fract->zoom * tmp.y
+				- 0.2 * (mid.y - tmp.y);
 			fract->zoom *= 0.9;
 		}
 	}
@@ -37,8 +41,10 @@ int		mouse_event(int button, int x, int y, t_fract *fract)
 				: fract->color - 1;
 		else if (fract->mode == ZOOM)
 		{
-			fract->x_offset -= 0.1 * fract->zoom * tmp.x;
-			fract->y_offset -= 0.1 * fract->zoom * tmp.y;
+			fract->x_offset -= 0.1 * fract->zoom * tmp.x
+				- 0.2 * (mid.x - tmp.x);
+			fract->y_offset -= 0.1 * fract->zoom * tmp.y
+				- 0.2 * (mid.y - tmp.y);
 			fract->zoom *= 1.1;
 		}
 	}
