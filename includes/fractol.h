@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/25 18:09:07 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 09:19:11 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,12 @@ void			error(char *str, t_fract *fract);
 int				mouse_event(int button, int x, int y, t_fract *fract);
 int				close_win(t_fract *fract);
 int				key_release(int key, t_fract *fract);
+int				key_press(int key, t_fract *fract);
 int				mouse_move(int x, int y, t_fract *fract);
+int				is_arrow(int key);
+int				is_letter_direction(int key);
+void			change_julia_param(t_fract *fract, int key);
+void			move_fractal(t_fract *fract, int key);
 
 t_point			coord(t_fract *fract, int x, int y);
 

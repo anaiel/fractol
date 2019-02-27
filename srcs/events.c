@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 16:46:13 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 09:25:58 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,12 @@ int		key_release(int key, t_fract *fract)
 		fract->mode = (fract->mode + 1) % 2;
 	else if (key == M)
 		fract->is_active_mouse = (fract->is_active_mouse) ? 0 : 1;
-	else if (key == SPACE || (fract->name == JULIA && (key == DOWN_ARR
-					|| key == UP_ARR || key == RIGHT_ARR || key == LEFT_ARR)))
+	else if (key == SPACE || (fract->name == JULIA && is_letter_direction(key)))
 	{
 		if (key == SPACE)
 			fract->color = (fract->color + 1) % NB_COLOR_SCHEMES;
-		else if (key == DOWN_ARR)
-			fract->julia.y -= 0.000001;
-		else if (key == UP_ARR)
-			fract->julia.y += 0.000001;
-		else if (key == LEFT_ARR)
-			fract->julia.x -= 0.000001;
-		else if (key == RIGHT_ARR)
-			fract->julia.x += 0.000001;
+		else if (is_letter_direction(key))
+			change_julia_param(fract, key);
 		if (!draw_fractal(fract))
 			error("failed to draw fractal", fract);
 		mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr,
@@ -99,5 +92,18 @@ int		mouse_move(int x, int y, t_fract *fract)
 					/ 10000;
 			draw_fractal(fract);
 		}
+	return (0);
+}
+
+int			key_press(int key, t_fract *fract)
+{
+	if (is_arrow(key))
+	{
+		move_fractal(fract, key);
+		if (!draw_fractal(fract))
+			error("failed to draw fractal", fract);
+		mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr,
+				0, 0);
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/25 17:56:27 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 09:21:29 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ int			main(int ac, char **av)
 	mlx_hook(fract.win_ptr, 17, 0, &close_win, &fract);
 	mlx_hook(fract.win_ptr, 3, 0, &key_release, &fract);
 	mlx_hook(fract.win_ptr, 6, 0, &mouse_move, &fract);
+	mlx_hook(fract.win_ptr, 2, 0, &key_press, &fract);
 	mlx_loop(fract.mlx_ptr);
 }

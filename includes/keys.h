@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/24 15:28:36 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/02/27 09:17:49 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@
 # define RIGHT_ARR 124
 # define LEFT_ARR 123
 
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+
 /*# define PAD_1 83
 # define PAD_2 84
 # define PAD_3 85
@@ -38,10 +43,7 @@
 # define PAD_8 91
 # define PAD_9 92
 
-# define W 13
-# define A 0
-# define S 1
-# define D 2
+
 # define Q 12
 # define E 14
 # define Z 6

@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/25 17:43:43 by anleclab         ###   ########.fr        #
+#    Updated: 2019/02/27 09:05:28 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC = main.c \
 	  color.c \
 	  julia.c \
 	  gradient.c \
-	  burning_ship.c
+	  burning_ship.c \
+	  events_tools.c
 SRCSFD = srcs/
 OBJSFD = objs/
 OBJS = $(addprefix $(OBJSFD),$(SRC:.c=.o))
