@@ -33,13 +33,13 @@ exit: ESC / red cross
 ./fractol julia
 ```
 
-<img src="https://github.com/anaiel/fractol/blob/master/fractals/Julia.png?raw=true" alt="Julia" width="300"/>
+<p align="center"><img src="https://github.com/anaiel/fractol/blob/master/fractals/Julia.png?raw=true" alt="Julia" width="300"/></p>
 
 ```
 ./fractol "burning ship"
 ```
 
-<img src="https://raw.githubusercontent.com/anaiel/fractol/master/fractals/Burning%20ship.png" alt="Burning ship" width="300"/>
+<p align="center"><img src="https://raw.githubusercontent.com/anaiel/fractol/master/fractals/Burning%20ship.png" alt="Burning ship" width="300"/></p>
 
 
 ## Authors
