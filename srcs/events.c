@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:31:46 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 11:30:16 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 09:00:18 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,18 @@
 
 int		mouse_event(int button, int x, int y, t_fract *fract)
 {
-	t_point	tmp;
-	t_point mid;
-
 	if (button != MOUSE_SCROLL_UP && button != MOUSE_SCROLL_DOWN)
 		return (0);
-	tmp = coord(fract, x, y);
-	mid = coord(fract, fract->width / 2, fract->height / 2);
-	if (button == MOUSE_SCROLL_UP)
+	if (fract->mode == COLOR)
 	{
-		if (fract->mode == COLOR)
+		if (button == MOUSE_SCROLL_UP)
 			fract->color = (fract->color + 1) % (NB_COLOR_SCHEMES);
-		else if (fract->mode == ZOOM)
-		{
-			fract->x_offset += 0.1 * fract->zoom * tmp.x
-				- 0.2 * (mid.x - tmp.x);
-			fract->y_offset += 0.1 * fract->zoom * tmp.y
-				- 0.2 * (mid.y - tmp.y);
-			fract->zoom *= 0.9;
-		}
-	}
-	else if (button == MOUSE_SCROLL_DOWN)
-	{
-		if (fract->mode == COLOR)
+		else
 			fract->color = (fract->color == 0) ? NB_COLOR_SCHEMES - 1
 				: fract->color - 1;
-		else if (fract->mode == ZOOM)
-		{
-			fract->x_offset -= 0.1 * fract->zoom * tmp.x
-				- 0.2 * (mid.x - tmp.x);
-			fract->y_offset -= 0.1 * fract->zoom * tmp.y
-				- 0.2 * (mid.y - tmp.y);
-			fract->zoom *= 1.1;
-		}
 	}
+	else
+		zoom(fract, button, coord(fract, x, y));
 	if (!draw_fractal(fract))
 		error("failed to draw fractal", fract);
 	mlx_put_image_to_window(fract->mlx_ptr, fract->win_ptr, fract->img_ptr, 0,
@@ -101,7 +79,7 @@ int		mouse_move(int x, int y, t_fract *fract)
 	return (0);
 }
 
-int			key_press(int key, t_fract *fract)
+int		key_press(int key, t_fract *fract)
 {
 	if (is_arrow(key))
 	{

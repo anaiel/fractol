@@ -6,7 +6,7 @@
 #    By: anleclab <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 15:21:21 by anleclab          #+#    #+#              #
-#    Updated: 2019/02/27 09:05:28 by anleclab         ###   ########.fr        #
+#    Updated: 2019/03/04 09:19:57 by anleclab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ all: check_libft $(NAME) $(HDRS)
 	@echo "Compilation successful"
 
 $(NAME): project $(OBJSFD) $(OBJS) $(LIBFT) $(HDRS)
-	@gcc $(FLAGS) $(MLX) $(OBJS) $(LIB_BINARY) -o $@
+	@gcc $(CFLAGS) $(MLX) $(OBJS) $(LIB_BINARY) -o $@
 	@echo "\t[ \033[0;32m✔\033[0m ] fractol executable"
 
 check_libft:

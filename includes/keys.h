@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 17:23:18 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 09:17:49 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 08:58:38 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,5 @@
 # define A 0
 # define S 1
 # define D 2
-
-/*# define PAD_1 83
-# define PAD_2 84
-# define PAD_3 85
-# define PAD_4 86
-# define PAD_6 88
-# define PAD_7 89
-# define PAD_8 91
-# define PAD_9 92
-
-
-# define Q 12
-# define E 14
-# define Z 6
-# define X 7
-
-
-
-# define PLUS 24
-# define PAD_PLUS 69
-# define MINUS 27
-# define PAD_MINUS 78
-
-# define P 35
-# define I 34
-# define T 17
-
-
-
-
-# define R 15
-
-# define MOUSE_LEFT_CLICK 1*/
 
 #endif

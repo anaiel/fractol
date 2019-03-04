@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 15:53:19 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 08:53:08 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ int				is_arrow(int key);
 int				is_letter_direction(int key);
 void			change_julia_param(t_fract *fract, int key);
 void			move_fractal(t_fract *fract, int key);
+void			zoom(t_fract *fract, int key, t_point tmp);
 
 t_point			coord(t_fract *fract, int x, int y);
 

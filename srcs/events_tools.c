@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 09:00:02 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 16:04:10 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 09:19:43 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		is_arrow(int key)
 
 int		is_letter_direction(int key)
 {
-	return((key == W || key == A || key == S || key == D));
+	return ((key == W || key == A || key == S || key == D));
 }
 
 void	change_julia_param(t_fract *fract, int key)
@@ -45,4 +45,27 @@ void	move_fractal(t_fract *fract, int key)
 		fract->x_offset -= fract->zoom * 0.1;
 	else if (key == RIGHT_ARR)
 		fract->x_offset += fract->zoom * 0.1;
+}
+
+void	zoom(t_fract *fract, int key, t_point tmp)
+{
+	t_point	mid;
+
+	mid = coord(fract, fract->width / 2, fract->height / 2);
+	if (key == MOUSE_SCROLL_DOWN)
+	{
+		fract->x_offset += 0.1 * fract->zoom * tmp.x
+				- 0.2 * (mid.x - tmp.x);
+		fract->y_offset += 0.1 * fract->zoom * tmp.y
+				- 0.2 * (mid.y - tmp.y);
+		fract->zoom *= 0.9;
+	}
+	else
+	{
+		fract->x_offset -= 0.1 * fract->zoom * tmp.x
+				+ 0.2 * (mid.x - tmp.x);
+		fract->y_offset -= 0.1 * fract->zoom * tmp.y
+				+ 0.2 * (mid.y - tmp.y);
+		fract->zoom *= 1.1;
+	}
 }

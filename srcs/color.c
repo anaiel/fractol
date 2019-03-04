@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:13:25 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 15:53:37 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 08:46:10 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static void	init_smooth(t_fract *fract)
 					/ (double)COL_TAB_SIZE), B2O_1, B2O_5);
 		fract->col_tab[FIRE][i] = gradient(((double)i
 					/ (double)COL_TAB_SIZE), FIRE_1, FIRE_2);
-
 	}
 }
 
