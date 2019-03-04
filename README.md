@@ -1,10 +1,13 @@
 # Fract'Ol
 
+Graphics > FdF > Fract'Ol : Fractals, complex numbers, multi-threading
+
 This project was completed in February 2019 as part of the 42 school cursus. The aim was to vizualize 3 fractals using the minilibx graphics library. The complete instruction can be found [here](https://github.com/miniponps/42-Fractol/blob/master/fract_ol.pdf).
 
 ## Getting Started
 
-Clone the repository. The project uses the minilibx library which can be found in the `resources/` folder. To install the minilibx library, follow the instructions [here](https://github.com/pbondoer/MinilibX).
+Clone the repository.
+The project uses the minilibx library. To install the minilibx library, follow the instructions [here](https://github.com/pbondoer/MinilibX).
 Compile the project using `make`.
 
 ### Controls
