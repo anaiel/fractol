@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:28:53 by anleclab          #+#    #+#             */
-/*   Updated: 2019/02/27 10:18:05 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 15:46:38 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	print_controls(void)
 	ft_putstr("  \033[0;33mcolor\033[0m: SPACE / scroll up/down (in color ");
 	ft_putstr("mode)\n");
 	ft_putstr("  \033[0;33mmove fractal\033[0m: up/down/left/right arrows\n");
-	ft_putstr("  \033[0;33mchange julia parameters\033[0m: W/A/S/D / move ");
+	ft_putstr("  \033[0;33mchange julia parameters\033[0m: move ");
 	ft_putstr("mouse (if active)\n");
 	ft_putstr("  \033[0;33mactivate/deactivate mouse\033[0m: M\n");
 	ft_putstr("  \033[0;33mexit\033[0m: ESC / red cross\n\n");

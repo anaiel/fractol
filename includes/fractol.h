@@ -6,7 +6,7 @@
 /*   By: anleclab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 15:25:34 by anleclab          #+#    #+#             */
-/*   Updated: 2019/03/04 08:53:08 by anleclab         ###   ########.fr       */
+/*   Updated: 2019/03/04 15:45:46 by anleclab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <pthread.h>
 
 # define SIZE 250
-# define ITERATIONS 1000
+# define ITERATIONS 100
 # define COL_TAB_SIZE 1000
 # define NB_COLOR_SCHEMES 5
 # define NB_THREADS 20

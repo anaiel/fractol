@@ -1,7 +1,0 @@
-*.swp
-fractol
-objs/
-objs/*.o
-libft/libft.a
-libft/obj/*.o
-libft/obj/
