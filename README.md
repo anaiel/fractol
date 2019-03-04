@@ -21,12 +21,15 @@ exit: ESC / red cross
 
 ## Examples
 
+![Mandelbrot](https://github.com/anaiel/fractol/blob/master/fractals/Mandelbrot.png?raw=true "Mandelbrot")
 ```
 ./fractol mandelbrot
 ```
+![Julia](https://github.com/anaiel/fractol/blob/master/fractals/Julia.png?raw=true "Julia")
 ```
 ./fractol julia
 ```
+![Burning ship](https://raw.githubusercontent.com/anaiel/fractol/master/fractals/Burning%20ship.png "Burning ship")
 ```
 ./fractol "burning ship"
 ```
