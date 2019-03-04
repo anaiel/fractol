@@ -9,7 +9,7 @@ Compile the project using `make`.
 
 ### Controls
 
-````
+```
 change mode: C
 zoom: scroll up/down (in zoom mode)
 color: SPACE / scroll up/down (in color mode)
@@ -34,4 +34,3 @@ exit: ESC / red cross
 ## Authors
 
 * **Anaëlle Leclabart** - [anaiel](https://github.com/anaiel)
-* **[Xeska](https://github.com/xeska)**
