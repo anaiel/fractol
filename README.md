@@ -21,6 +21,7 @@ exit: ESC / red cross
 
 ## Examples
 
+<img src="https://github.com/anaiel/fractol/blob/master/fractals/Mandelbrot.png?raw=true" alt="Mandelbrot" width="200"/>
 ![Mandelbrot](https://github.com/anaiel/fractol/blob/master/fractals/Mandelbrot.png?raw=true "Mandelbrot")
 ```
 ./fractol mandelbrot
